@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Portfolio | Upcoming Conferences</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="glass-nav sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-bold tracking-tight">RESEARCH<span class="text-blue-600">HUB</span></span>
+            <div class="space-x-8 text-sm font-medium uppercase tracking-wider">
+                <a href="#publications" class="hover:text-blue-600 transition">Publications</a>
+                <a href="#conferences" class="hover:text-blue-600 transition border-b-2 border-blue-600 pb-1">Conferences</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="max-w-6xl mx-auto px-6 py-20 text-center md:text-left">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">Academic <br><span class="text-blue-600 italic">Work & Insights.</span></h1>
+        <p class="text-xl text-slate-500 max-w-2xl leading-relaxed">
+            Showcasing peer-reviewed research, active projects, and a curated list of upcoming global conferences in my field.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-32">
+        
+        <section id="publications" class="mb-24">
+            <div class="flex items-center justify-between mb-10">
+                <h2 class="text-3xl font-bold">Featured Publications</h2>
+                <div class="h-px flex-grow bg-slate-200 ml-8"></div>
+            </div>
+            
+            <div class="grid gap-8">
+                <div class="group p-6 bg-white border border-slate-200 rounded-2xl hover:shadow-xl hover:border-blue-200 transition-all duration-300">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-full uppercase tracking-widest">Journal</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs font-bold rounded-full uppercase tracking-widest">2024</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-600 transition">Your Research Title Goes Here: An In-Depth Study</h3>
+                    <p class="text-slate-600 mb-4 italic">Author Name, Co-Author, and Collaborator</p>
+                    <p class="text-slate-500 leading-relaxed mb-6">A brief abstract describing the impact and findings of your work to engage readers immediately.</p>
+                    <a href="#" class="inline-flex items-center font-semibold text-blue-600 hover:underline">
+                        Read Full Paper 
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="conferences">
+            <div class="flex items-center justify-between mb-10">
+                <h2 class="text-3xl font-bold text-slate-800">Upcoming Conferences</h2>
+                <span class="text-sm text-slate-400 bg-white px-4 py-1 border border-slate-100 rounded-full shadow-sm italic">Live from Google Sheets</span>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 border-b border-slate-200" id="table-headers">
+                                </tr>
+                        </thead>
+                        <tbody id="conference-rows" class="divide-y divide-slate-100">
+                            </tbody>
+                    </table>
+                </div>
+                <div id="loading" class="py-20 text-center">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-blue-600 border-t-transparent mb-4"></div>
+                    <p class="text-slate-400 font-medium">Syncing with your spreadsheet...</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 px-6 text-center">
+        <p class="text-sm uppercase tracking-widest">&copy; 2024 Your Name | Researcher Portfolio</p>
+    </footer>
+
+    <script>
+        // Your direct CSV link
+        const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRTHbPEXhpZPFiv8gjWuQJKdGFVEfGoZc9j0DrAMvcy0Wsy3iVbH4o97RYXDQ8SXJ8pbnQVIrVn3tWk/pub?gid=0&single=true&output=csv';
+
+        function loadConferences() {
+            Papa.parse(csvUrl, {
+                download: true,
+                header: true,
+                skipEmptyLines: true,
+                complete: function(results) {
+                    const data = results.data;
+                    const headers = results.meta.fields;
+                    
+                    const headerRow = document.getElementById('table-headers');
+                    const tbody = document.getElementById('conference-rows');
+                    const loadingIndicator = document.getElementById('loading');
+
+                    // 1. Generate Headers
+                    headers.forEach(header => {
+                        const th = document.createElement('th');
+                        th.className = "px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest";
+                        th.textContent = header;
+                        headerRow.appendChild(th);
+                    });
+
+                    // 2. Generate Rows
+                    data.forEach(row => {
+                        const tr = document.createElement('tr');
+                        tr.className = "hover:bg-blue-50/30 transition-colors duration-150";
+                        
+                        headers.forEach(header => {
+                            const td = document.createElement('td');
+                            td.className = "px-6 py-5 text-sm text-slate-700";
+                            
+                            // Make links clickable if the cell contains "http"
+                            if (row[header] && row[header].toString().startsWith('http')) {
+                                td.innerHTML = `<a href="${row[header]}" target="_blank" class="text-blue-600 font-semibold hover:underline">Link &rarr;</a>`;
+                            } else {
+                                td.textContent = row[header] || '—';
+                            }
+                            tr.appendChild(td);
+                        });
+                        tbody.appendChild(tr);
+                    });
+
+                    // 3. Hide loading indicator
+                    loadingIndicator.classList.add('hidden');
+                },
+                error: function(err) {
+                    console.error("Error loading CSV:", err);
+                    document.getElementById('loading').innerHTML = `<p class="text-red-500 font-bold">Failed to load spreadsheet data. Check if it is published to the web.</p>`;
+                }
+            });
+        }
+
+        window.onload = loadConferences;
+    </script>
+</body>
+</html>
