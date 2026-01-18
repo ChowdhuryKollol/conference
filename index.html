@@ -166,22 +166,23 @@
     <script>
         // 1. ALL 16 PUBLICATIONS DATA
         const publications = [
-            { id: 1, title: "Smart Retention: AI-Driven Approaches for Predicting Student Dropouts in Higher Education in Bangladesh", venue: "ECCE 25", status: "Published", pos: "1st Author", doi: "10.1109/ECCE64574.2025.11013481" },
-            { id: 2, title: "Rumor Detection in Bangla: A Comparative Study of ML and DL Models Integrated with PMI-SO", venue: "QPAIN 2025", status: "Published", pos: "5th Author", doi: "10.1109/QPAIN66474.2025.11171923" },
-            { id: 3, title: "Uncovering Complex Stroke Risk Patterns Using Association Rule Mining on Synthetic and Real World Health Data", venue: "QPAIN 2025", status: "Published", pos: "5th Author", doi: "10.1109/QPAIN66474.2025.11171933" },
-            { id: 4, title: "TSD XAI: Integrating XAI with Transformer Networks for Interpretable Sarcasm Detection", venue: "QPAIN 2025", status: "Published", pos: "3rd Author", doi: "10.1109/QPAIN66474.2025.11172208" },
-            { id: 5, title: "Discovering Patterns in Environmental Data for Air Quality Analysis Using Association Rule Mining", venue: "QPAIN 2025", status: "Published", pos: "2nd Author", doi: "10.1109/QPAIN66474.2025.11172234" },
-            { id: 6, title: "An Explainable AI Approach for Bangla Speech Recognition Using Deep Learning Techniques", venue: "ICCCNT 2025", status: "Presented", pos: "6th Author", doi: "" },
-            { id: 7, title: "Enhancing Resume Screening Through Multi-Stage LLM Classification and Hybrid Summarization", venue: "BIM", status: "Presented", pos: "4th Author", doi: "" },
-            { id: 8, title: "A Stacking Ensemble Framework for Predicting Employee Turnover: Explainable AI with SHAP", venue: "COMPAS", status: "Presented", pos: "4th Author", doi: "" },
-            { id: 9, title: "Designing Abstractive Summarization Systems based on Transformer for Urdu", venue: "COMPAS", status: "Presented", pos: "4th Author", doi: "" },
-            { id: 10, title: "Interpretable Fine-Grained Hate Speech Detection in Bangla CNN with LIME and Comparative Evaluation", venue: "COMPAS", status: "Presented", pos: "1st Author", doi: "" },
-            { id: 11, title: "A Privacy-Preserving Federated Learning Framework for Diagnosing of Respiratory Diseases", venue: "ICCIT", status: "Presented", pos: "4th Author", doi: "" },
-            { id: 12, title: "A Scalable Big Data Framework for Customer Churn Prediction in the Telecom Industry", venue: "ICIPCN 2026", status: "Accepted", pos: "2nd Author", doi: "" },
-            { id: 13, title: "AI-Based Intrusion Detection Method for Enhanced Cybersecurity in Modern Network Traffic", venue: "QPAIN 2026", status: "Under Review", pos: "3rd Author", doi: "" },
-            { id: 14, title: "Exploring Self-Supervised Embeddings for Effective Bangla Cyberbullying Detection Using ML Methods", venue: "QPAIN 2026", status: "Under Review", pos: "4th Author", doi: "" },
-            { id: 15, title: "DAMFN-Based Deep Learning for Parkinson’s Disease Diagnosis from Neuroimaging Data", venue: "ICAIII 2026", status: "Under Review", pos: "3rd Author", doi: "" },
-            { id: 16, title: "Federated Big Data Analytics for Student Performance Under Data Locality and Privacy Constraints", venue: "ICAIII 2026", status: "Under Review", pos: "3rd Author", doi: "" }
+            { id: 1, title: "Smart Retention: AI-Driven Approaches for Predicting Student Dropouts in Higher Education in Bangladesh", venue: "ECCE 25", status: "Published", pos: "Author", doi: "10.1109/ECCE64574.2025.11013481" },
+            { id: 2, title: "Rumor Detection in Bangla: A Comparative Study of ML and DL Models Integrated with PMI-SO", venue: "QPAIN 2025", status: "Published", pos: "Co-Author", doi: "10.1109/QPAIN66474.2025.11171923" },
+            { id: 3, title: "Uncovering Complex Stroke Risk Patterns Using Association Rule Mining on Synthetic and Real World Health Data", venue: "QPAIN 2025", status: "Published", pos: "Co-Author", doi: "10.1109/QPAIN66474.2025.11171933" },
+            { id: 4, title: "TSD XAI: Integrating XAI with Transformer Networks for Interpretable Sarcasm Detection", venue: "QPAIN 2025", status: "Published", pos: "Co-Author", doi: "10.1109/QPAIN66474.2025.11172208" },
+            { id: 5, title: "Discovering Patterns in Environmental Data for Air Quality Analysis Using Association Rule Mining", venue: "QPAIN 2025", status: "Published", pos: "Co-Author", doi: "10.1109/QPAIN66474.2025.11172234" },
+            { id: 6, title: "An Explainable AI Approach for Bangla Speech Recognition Using Deep Learning Techniques", venue: "ICCCNT 2025", status: "Presented", pos: "Co-Author", doi: "" },
+            { id: 7, title: "Enhancing Resume Screening Through Multi-Stage LLM Classification and Hybrid Summarization", venue: "BIM", status: "Presented", pos: "Co-Author", doi: "" },
+            { id: 8, title: "A Stacking Ensemble Framework for Predicting Employee Turnover: Explainable AI with SHAP", venue: "COMPAS", status: "Presented", pos: "Co-Author", doi: "" },
+            { id: 9, title: "Designing Abstractive Summarization Systems based on Transformer for Urdu", venue: "COMPAS", status: "Presented", pos: "Co-Author", doi: "" },
+            { id: 10, title: "Interpretable Fine-Grained Hate Speech Detection in Bangla CNN with LIME and Comparative Evaluation", venue: "COMPAS", status: "Presented", pos: "Author", doi: "" },
+            { id: 11, title: "A Privacy-Preserving Federated Learning Framework for Diagnosing of Respiratory Diseases", venue: "ICCIT", status: "Presented", pos: "Co-Author", doi: "" },
+            { id: 12, title: "A Scalable Big Data Framework for Customer Churn Prediction in the Telecom Industry", venue: "ICIPCN 2026", status: "Accepted", pos: "Co-Author", doi: "" },
+            { id: 13, title: "AI-Based Intrusion Detection Method for Enhanced Cybersecurity in Modern Network Traffic", venue: "QPAIN 2026", status: "Under Review", pos: "Co-Author", doi: "" },
+            { id: 14, title: "Exploring Self-Supervised Embeddings for Effective Bangla Cyberbullying Detection Using ML Methods", venue: "QPAIN 2026", status: "Under Review", pos: "Co-Author", doi: "" },
+            { id: 15, title: "DAMFN-Based Deep Learning for Parkinson’s Disease Diagnosis from Neuroimaging Data", venue: "ICAIII 2026", status: "Under Review", pos: "Co-Author", doi: "" },
+            { id: 16, title: "Federated Big Data Analytics for Student Performance Under Data Locality and Privacy Constraints", venue: "ICAIII 2026", status: "Under Review", pos: "Co-Author", doi: "" },
+            { id: 17, title: "MSRFF: An Interpretable CNN-Vision Transformer Framework for Diabetic Retinopathy Detection", venue: "ICCIAA 2026", status: "Under Review", pos: "Co-Author", doi: "" }
         ];
 
         function renderPublications() {
@@ -259,3 +260,4 @@
     </script>
 </body>
 </html>
+
